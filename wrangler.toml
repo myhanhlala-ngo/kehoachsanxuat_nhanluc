@@ -1,0 +1,8 @@
+name = "kpi-production-report"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kpi-db"
+database_id = "DAN_DATABASE_ID_VAO_DAY"   # lấy từ lệnh: npx wrangler d1 create kpi-db
