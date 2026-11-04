@@ -16,10 +16,18 @@ const KEY_RE = /^(day:\d{4}-\d{2}-\d{2}|hcTO|writer)$/;
 const MAX_VALUE_BYTES = 900_000; // D1 giới hạn ~1 MB/giá trị (2 MB/hàng) → chặn sớm cho an toàn
 const HISTORY_KEEP = 50;        // giữ 50 bản gần nhất cho mỗi key
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': 'https://assy-portal.pages.dev',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Vary': 'Origin',
+};
+
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), {
     status,
     headers: {
+      ...CORS_HEADERS,
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
     },
