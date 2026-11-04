@@ -33,6 +33,12 @@ const json = (obj, status = 200) =>
     },
   });
 
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: CORS_HEADERS,
+  });
+}
 function rowsToData(rows) {
   const data = {};
   for (const r of rows) {
